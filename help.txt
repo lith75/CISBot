@@ -1,0 +1,70 @@
+                                                                                                                                            
+8888888 8888888888 8 8888        8 8 8888888888       ,o888888o.     8 8888    d888888o.   8 888888888o       ,o888888o. 8888888 8888888888 
+      8 8888       8 8888        8 8 8888            8888     `88.   8 8888  .`8888:' `88. 8 8888    `88.  . 8888     `88.     8 8888       
+      8 8888       8 8888        8 8 8888         ,8 8888       `8.  8 8888  8.`8888.   Y8 8 8888     `88 ,8 8888       `8b    8 8888       
+      8 8888       8 8888        8 8 8888         88 8888            8 8888  `8.`8888.     8 8888     ,88 88 8888        `8b   8 8888       
+      8 8888       8 8888        8 8 888888888888 88 8888            8 8888   `8.`8888.    8 8888.   ,88' 88 8888         88   8 8888       
+      8 8888       8 8888        8 8 8888         88 8888            8 8888    `8.`8888.   8 8888888888   88 8888         88   8 8888       
+      8 8888       8 8888888888888 8 8888         88 8888            8 8888     `8.`8888.  8 8888    `88. 88 8888        ,8P   8 8888       
+      8 8888       8 8888        8 8 8888         `8 8888       .8'  8 8888 8b   `8.`8888. 8 8888      88 `8 8888       ,8P    8 8888       
+      8 8888       8 8888        8 8 8888            8888     ,88'   8 8888 `8b.  ;8.`8888 8 8888    ,88'  ` 8888     ,88'     8 8888       
+      8 8888       8 8888        8 8 888888888888     `8888888P'     8 8888  `Y8888P ,88P' 8 888888888P       `8888888P'       8 8888       
+                                                                                                                                        
+                                                                                                                                        
+
+
+This is a Tool that automates the flow of configuring a ubuntu system to the Center of internet security Benchmarks. The tool can both audit and configure the the system according to these standards
+
+
+
+
+Below flags determine which scripts will be run (what audit/configuration will be done) - The results of the scripts will be saved in the same directory where the tool is being executed.
+
+Flags must be passed as arguments alongside the execution of the tool.
+
+Before Using the tool to harden security make sure that you run the installation process this can simply be done using the -x flag
+
+
+###IMPORTANT
+Results file will not be removed to allow users to look for a detailed overview of the findings
+before executing another report please make sure to delete the old results file.
+###
+
+
+
+Flags:
+    -i :Audits Initial configuration.
+    -I :Configures Initial Configuration.
+    -l :Audits Logging rules.
+    -L :Configures Logging rules.
+    -s :Audits services installed and running on the system.
+    -S :Configures services installed and running on the system.
+    -n :Audits network configurations on the system.
+    -N :Configures Network configurations on the system.
+    -x :Installs necessary dependant packages for the tool and grants file permissions for the necessary scripts.
+    -r :Take a snapshot of the system configuration, This will be utlized as a backup of the system configuration of the device to rollback into this configuration in case of unexpected results.
+    -R :Rollback to the previous state before the configuration changes.
+    -m :Audits system maintenance.
+    -m :onfigures system maintenance.
+    -h :Displays this help message.
+    -z :Reports back a summary of all the current local audit findings
+    -O :execute other scripts which may affect system stability
+
+
+
+###User Guide for Remote management within the tool.
+
+Before the use of the tool Navigate to the ssh-config file and change that values of the Config.
+USERNAME=              [The user set up on the remote system with administrative privileges with passwordless authentication already setted up to run sudo commands without prompting for a password]
+PASSWORD=              [password of the above user for authentication]
+IP=                    [An accessible IP address of the remote system]
+PORT=22                [THe port in which SSH service is listening on (doesnt necessarily have to be port 22)]
+PATH_TO_LOCAL_DIRECTORY=            [Path where remote system reports back to] eg: '/home/ubuntu/Desktop': will save all findings in the desktop
+
+
+Flags must be passed as arguments alongside the execution of the tool.
+Flags for remote configuration
+      -i :installs the necessary dependancies in the remote system
+      -a :Runs all audit scripts in the remote systems
+      -c :Runs Configuration scripts in the remote systems
+      -r :Reports back to the host machine on the findings
